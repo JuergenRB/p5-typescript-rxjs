@@ -2,5 +2,8 @@
   "name": "typescript",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@types/p5": "^0.9.1",
+    "p5": "^1.1.9"
+  }
 }
