@@ -1,13 +1,14 @@
-import p5 from 'p5'
+import { Sketch } from './sketch';
+import { tap } from 'rxjs/operators';
 
-function sketch(p: p5) {
-  p.setup = () => {
-    p.createCanvas(400, 400);
-  }
+let sketch = new Sketch();
 
-  p.draw = () => {
-    p.background(220);
-  }
-}
+sketch.onSetup.pipe(
+  tap(p => p.createCanvas(400, 400)),
+).subscribe(() => console.log("setup"));
 
-new p5(sketch)
+sketch.onDraw.pipe(
+  tap(p => p.background(220))
+).subscribe();
+
+sketch.run();
